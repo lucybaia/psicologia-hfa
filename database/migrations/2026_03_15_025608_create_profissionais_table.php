@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('profissionais', function (Blueprint $table) {
             $table->id();
             $table->string('nome');
-            $table->string('crp')->unique();
+            $table->string('registro')->unique(); // mudado de crp para registro (pode ser CRP ou CRM)
             $table->string('especialidade');
             $table->string('email')->unique();
             $table->string('telefone');

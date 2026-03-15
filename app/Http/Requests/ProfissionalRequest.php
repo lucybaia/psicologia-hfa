@@ -17,7 +17,7 @@ class ProfissionalRequest extends FormRequest
 
         return [
             'nome'          => 'required|string|max:255',
-            'crp'           => 'required|string|unique:profissionais,crp,' . $profissionalId,
+            'registro'      => 'required|string|unique:profissionais,registro,' . $profissionalId,
             'especialidade' => 'required|string|max:255',
             'email'         => 'required|email|unique:profissionais,email,' . $profissionalId,
             'telefone'      => 'required|string|max:20',
@@ -29,8 +29,8 @@ class ProfissionalRequest extends FormRequest
     {
         return [
             'nome.required'          => 'Informe o nome do profissional.',
-            'crp.required'           => 'Informe o CRP.',
-            'crp.unique'             => 'Este CRP já está cadastrado.',
+            'registro.required'      => 'Informe o registro profissional (CRP ou CRM).',
+            'registro.unique'        => 'Este registro já está cadastrado.',
             'especialidade.required' => 'Informe a especialidade.',
             'email.required'         => 'Informe o email.',
             'email.unique'           => 'Este email já está cadastrado.',

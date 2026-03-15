@@ -12,7 +12,7 @@ class Profissional extends Model
     protected $table = 'profissionais'; // ← adicione essa linha
 
     protected $fillable = [
-        'nome', 'crp', 'especialidade',
+        'nome', 'registro', 'especialidade', // Mudou de crp para registro
         'email', 'telefone', 'tipo'
     ];
 

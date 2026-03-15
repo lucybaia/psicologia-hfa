@@ -24,13 +24,22 @@ class ProfissionalFactory extends Factory
      */
     public function definition(): array
     {
+        $tipo = fake()->randomElement(['psicologo', 'psiquiatra']);
+
+        if ($tipo === 'psiquiatra') {
+            $uf = fake()->randomElement(['SP', 'RJ', 'MG', 'DF', 'BA', 'PR']);
+            $registro = fake()->unique()->numerify("CRM/{$uf} ######");
+        } else {
+            $registro = fake()->unique()->numerify('##/######');
+        }
+
         return [
             'nome' => fake()->name(),
-            'crp' => fake()->unique()->numerify('##/#####'),
+            'registro' => $registro,
             'especialidade' => fake()->randomElement(['criança', 'adulto', 'idoso']),
             'email' => fake()->unique()->safeEmail(),
             'telefone' => fake()->phoneNumber(),
-            'tipo' => fake()->randomElement(['psicologo', 'psiquiatra']),
+            'tipo' => $tipo,
         ];
     }
 }

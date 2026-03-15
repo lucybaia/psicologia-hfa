@@ -19,7 +19,7 @@
             <tr>
                 <th>Nome</th>
                 <th>Tipo</th>
-                <th>CRP</th>
+                <th>Registro</th>
                 <th>Especialidade</th>
                 <th>Telefone</th>
                 <th>Ações</th>
@@ -48,7 +48,7 @@
                         {{ $labels[$profissional->tipo] }}
                     </span>
                     </td>
-                    <td>{{ $profissional->crp }}</td>
+                    <td>{{ $profissional->registro }}</td>
                     <td>{{ $profissional->especialidade }}</td>
                     <td>{{ $profissional->telefone }}</td>
                     <td style="display:flex; gap:6px;">

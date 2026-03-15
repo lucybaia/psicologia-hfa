@@ -18,7 +18,7 @@
         <div class="form-grid">
             @foreach([
                 ['Tipo',          'bi-person-badge', $profissional->tipo == 'psicologo' ? 'Psicólogo' : 'Psiquiatra'],
-                ['CRP',           'bi-card-text',    $profissional->crp],
+                ['Registro',      'bi-card-text',    $profissional->registro],
                 ['Especialidade', 'bi-mortarboard',  $profissional->especialidade],
                 ['Email',         'bi-envelope',     $profissional->email],
                 ['Telefone',      'bi-telephone',    $profissional->telefone],
