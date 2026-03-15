@@ -46,7 +46,7 @@ O sistema conta com um **Dashboard** gerenciado pelo `DashboardController`,
 que serve como ponto de entrada após o acesso.
 Nele é possível visualizar:
 
-![painel-screenshot.png](.\assets\painel-screenshot.png)
+![painel-screenshot.png](./assets/painel-screenshot.png)
 
 - Total de pacientes, profissionais e consultas cadastrados
 - Consultas recentes realizadas
