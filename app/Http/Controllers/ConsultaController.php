@@ -5,13 +5,17 @@ namespace App\Http\Controllers;
 use App\Models\Consulta;
 use App\Models\Paciente;
 use App\Models\Profissional;
-use Illuminate\Http\Request;
+use App\Http\Requests\ConsultaRequest;
 
 class ConsultaController extends Controller
 {
     public function index()
     {
-        $consultas = Consulta::with(['paciente', 'profissional'])->latest()->paginate(10);
+        $consultas = Consulta::with(['paciente', 'profissional'])
+            ->orderBy('data', 'desc')
+            ->orderBy('hora', 'desc')
+            ->paginate(10);
+
         return view('consultas.index', compact('consultas'));
     }
 
@@ -22,18 +26,8 @@ class ConsultaController extends Controller
         return view('consultas.create', compact('pacientes', 'profissionais'));
     }
 
-    public function store(Request $request)
+    public function store(ConsultaRequest $request)
     {
-        $request->validate([
-            'paciente_id'     => 'required|exists:pacientes,id',
-            'profissional_id' => 'nullable|exists:profissionais,id',
-            'data'            => 'required|date',
-            'hora'            => 'required',
-            'duracao'         => 'required|integer|min:10',
-            'status'          => 'required|in:agendada,realizada,cancelada',
-            'anotacoes'       => 'nullable|string',
-        ]);
-
         Consulta::create($request->all());
         return redirect()->route('consultas.index')
             ->with('success', 'Consulta agendada com sucesso!');
@@ -52,18 +46,8 @@ class ConsultaController extends Controller
         return view('consultas.edit', compact('consulta', 'pacientes', 'profissionais'));
     }
 
-    public function update(Request $request, Consulta $consulta)
+    public function update(ConsultaRequest $request, Consulta $consulta)
     {
-        $request->validate([
-            'paciente_id'     => 'required|exists:pacientes,id',
-            'profissional_id' => 'nullable|exists:profissionais,id',
-            'data'            => 'required|date',
-            'hora'            => 'required',
-            'duracao'         => 'required|integer|min:10',
-            'status'          => 'required|in:agendada,realizada,cancelada',
-            'anotacoes'       => 'nullable|string',
-        ]);
-
         $consulta->update($request->all());
         return redirect()->route('consultas.index')
             ->with('success', 'Consulta atualizada com sucesso!');
