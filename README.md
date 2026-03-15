@@ -278,13 +278,3 @@ php artisan test
 | NPM | Gerenciador de dependências JavaScript |
 | PHPStorm | IDE utilizada no desenvolvimento |
 | Git | Controle de versão |
-
----
-
-## Tecnologias Utilizadas
-
-- **PHP 8.2**
-- **Laravel 12**
-- **SQLite**
-- **Blade Templates**
-- **Bootstrap Icons**
