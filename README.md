@@ -85,7 +85,7 @@ e encapsulam os relacionamentos entre as entidades.
 
 ---
 
-### 🎮 Controllers — Regras e Navegação
+### Controllers — Regras e Navegação
 
 Localizados em `app/Http/Controllers/`, os Controllers são responsáveis por
 receber as requisições, aplicar a lógica de negócio,
